@@ -60,6 +60,8 @@ if k2_check == 'yes':
         k2_sum = np.sum(k2_array)
         k2_average = (k2_sum/2)
         avg_k2_per_mg = (k2_average/weight)
+        std_dev_k2_titer = np.std(k2_array, ddof = 1)
+        std_dev_k2_per_mg = std_dev_k2_titer/ weight
 
 viability_list = []
 k2_viability_list = []
@@ -77,7 +79,7 @@ viability4 = int(viability4)
 viability_list.append(viability4)
 viability_array = np.array(viability_list)
 viability_sum = np.sum(viability_array)
-viability_average = (viability_sum/4)
+viability_average = (viability_sum/400) # divide by 4 (for number of viabilities) * 100 (to make it a percent)
 std_dev_viability = np.std(viability_array, ddof = 1) #set ddof to 1, in order to calculate sample std dev
 
 if k2_check == 'yes':
@@ -89,7 +91,7 @@ if k2_check == 'yes':
     k2_viability_list.append(k2_viability2)
     k2_viability_array = np.array(k2_viability_list)
     k2_viability_sum = np.sum(k2_array)
-    k2_viability_average = (k2_viability_sum/2)
+    k2_viability_average = (k2_viability_sum/200)
     std_dev_k2_viability = np.std(k2_viability_array, ddof =1)
 
 
